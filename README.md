@@ -68,6 +68,23 @@ control.on("style.set", (e) => console.log(e.style.id));
 | ----------- | ---------------------------------- | ------------------------- |
 | `style.set` | `{ style: StyleDefSpecification }` | the active style changes. |
 
+## Methods
+
+```js
+const control = new StyleControl();
+map.addControl(control);
+
+control.setStyle("Winter");
+control.open();
+control.close();
+```
+
+| Method              | Description                                                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `setStyle(styleId)` | Switches to the style with the given `id`, same as clicking it in the UI. Fires `style.set`. Only available once the control has been added to a map via `map.addControl()` — it's `undefined` before that. |
+| `open()`            | Opens the style panel.                                                                                                                           |
+| `close()`           | Closes the style panel.                                                                                                                           |
+
 ## Styling
 
 Appearance is controlled via CSS custom properties on `.maplibre-style-control`, defined in `style.css`. Override them in your own stylesheet to theme the control:
