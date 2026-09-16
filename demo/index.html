@@ -25,6 +25,11 @@
     <script type="module">
       import { Map, config } from "maplibre-gl";
       import "maplibre-gl/dist/maplibre-gl.css";
+      // Import the CSS directly rather than relying on src/index.ts's own
+      // "import ./style.css" - since only some of that barrel file's exports
+      // are used below, the demo's full-app bundle drops that side effect
+      // along with it. Matches what real consumers do (see README).
+      import "../src/style.css";
       import { StyleControl } from "../src/index.ts";
 
       // maplibre-gl derives its worker URL from its own import.meta.url, which
