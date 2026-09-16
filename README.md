@@ -1,5 +1,9 @@
 # maplibre-style-control
 
+[![License](https://img.shields.io/npm/l/@maptoolkit/maplibre-style-control?style=plastic)](LICENSE)
+[![Version](https://img.shields.io/npm/v/@maptoolkit/maplibre-style-control?style=plastic)](https://www.npmjs.com/package/@maptoolkit/maplibre-style-control)
+[![Downloads](https://img.shields.io/npm/dm/@maptoolkit/maplibre-style-control?style=plastic)](https://www.npmjs.com/package/@maptoolkit/maplibre-style-control)
+
 A [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) control plugin to switch between different styles.
 
 ## Install
