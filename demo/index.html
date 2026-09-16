@@ -25,14 +25,17 @@
     <script type="module">
       import { Map, config } from "maplibre-gl";
       import "maplibre-gl/dist/maplibre-gl.css";
-      import maplibreWorkerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?url";
       import { StyleControl } from "../src/index.ts";
 
       // maplibre-gl derives its worker URL from its own import.meta.url, which
-      // only works when it's served as its own file. Since the demo build
-      // bundles it into one chunk, that derived URL 404s and the worker hangs
-      // forever - point it at the worker file explicitly instead.
-      config.WORKER_URL = maplibreWorkerUrl;
+      // only works when it's served as its own file (true in dev, served
+      // straight from node_modules). The production build bundles it into
+      // one chunk instead, so that derived URL 404s and the worker hangs
+      // forever - point it at the copied worker file explicitly (see
+      // vite.config.mts's copyMaplibreWorkerFiles plugin).
+      if (import.meta.env.PROD) {
+        config.WORKER_URL = new URL("./maplibre-gl-worker.mjs", import.meta.url).href;
+      }
 
       const map = new Map({
         container: "map",
