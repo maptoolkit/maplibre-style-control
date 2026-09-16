@@ -1,5 +1,11 @@
 # @maptoolkit/maplibre-style-control
 
+## 1.0.2
+
+### Patch Changes
+
+- f3c9e0d: Add a live demo link to the README. No code changes.
+
 ## 1.0.1
 
 ### Patch Changes
