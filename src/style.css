@@ -1,0 +1,300 @@
+.maplibre-style-control {
+  /* design tokens used by this control, scoped here so nothing leaks into a
+     consumer's global :root. Values ported from maps-js's control skin. */
+  --style-control-font-family: "Mulish", "Helvetica Neue", Arial, sans-serif;
+  --style-control-duration: 200ms;
+  --style-control-duration-fast: 120ms;
+  --style-control-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --style-control-shadow: 0 12px 32px rgba(25, 31, 57, 0.12), 0 2px 6px rgba(25, 31, 57, 0.06);
+  --style-control-shadow-sm: 0 4px 12px rgba(25, 31, 57, 0.08), 0 1px 2px rgba(25, 31, 57, 0.04);
+  --style-control-map: 0 2px 8px rgba(25, 31, 57, 0.15), 0 0 0 1px rgba(25, 31, 57, 0.06);
+  --style-control-border-color: #e1e2ea;
+  --style-control-bg-color: #ffffff;
+  --style-control-bg-subtle: #f6f6f9;
+  --style-control-radius: 8px;
+  --style-control-radius-sm: 4px;
+  --style-control-color-white: #ffffff;
+  --style-control-font-weight-bold: 700;
+  --style-control-font-size-h3: 22px;
+  --style-control-space-3: 12px;
+  --style-control-space-4: 16px;
+  --style-control-size: 80px;
+  --style-control-current-size: 85px;
+  --style-control-color-fg-strong: #282932;
+  --style-control-color-fg-muted: #656776;
+  --style-control-color-accent: #fa3f38;
+  --style-control-color-primary: #4054a5;
+
+  position: relative;
+  font-family: var(--style-control-font-family);
+  transition:
+    transform var(--style-control-duration) var(--style-control-ease),
+    box-shadow var(--style-control-duration) var(--style-control-ease);
+}
+.maplibre-style-control:not(:empty) {
+  box-shadow: var(--style-control-map);
+  border-radius: var(--style-control-radius);
+}
+.maplibre-style-control:hover,
+.maplibre-style-control.maplibre-style-control-active {
+  transform: translateY(-2px);
+  box-shadow: var(--style-control-shadow);
+}
+.maplibre-style-control .maplibre-style-control-current {
+  width: var(--style-control-current-size);
+  height: var(--style-control-current-size);
+}
+.maplibre-style-control .maplibre-style-control-current:not(:disabled):hover {
+  background-color: unset;
+}
+.maplibre-style-control .maplibre-style-control-current .maplibre-style-control-current-image {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-clip: border-box;
+  box-sizing: border-box;
+  border: 1px solid var(--style-control-border-color);
+  background-color: var(--style-control-bg-color);
+  border-radius: var(--style-control-radius);
+}
+.maplibre-style-control .maplibre-style-control-current .maplibre-style-control-current-name {
+  position: absolute;
+  left: 1px;
+  bottom: 1px;
+  width: calc(100% - 2px);
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  padding: 12px 6px 4px;
+  font-size: 12px;
+  font-weight: var(--style-control-font-weight-bold);
+  color: var(--style-control-color-white);
+  background: linear-gradient(180deg, rgba(25, 31, 57, 0) 0%, rgba(25, 31, 57, 0.65) 100%);
+  text-shadow: 0 1px 2px rgba(25, 31, 57, 0.5);
+  border-radius: 0 0 var(--style-control-radius) var(--style-control-radius);
+  box-sizing: border-box;
+}
+.maplibre-style-control .maplibre-style-control-groups {
+  box-sizing: border-box;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: var(--style-control-space-4);
+  background: var(--style-control-color-white);
+  pointer-events: none;
+  opacity: 0;
+  overflow: auto;
+  transition:
+    opacity var(--style-control-duration) var(--style-control-ease),
+    transform var(--style-control-duration) var(--style-control-ease);
+}
+.maplibre-style-control .maplibre-style-control-groups {
+  box-shadow: var(--style-control-map);
+}
+.maplibregl-ctrl-top-left .maplibre-style-control .maplibre-style-control-groups {
+  top: 0;
+  left: 0;
+  margin: 0 0 0 calc(var(--style-control-current-size) + 10px);
+  transform-origin: top left;
+  transform: translateX(-8px) scale(0.98);
+}
+.maplibregl-ctrl-top-center .maplibre-style-control .maplibre-style-control-groups {
+  top: 0;
+  left: 50%;
+  margin: calc(var(--style-control-current-size) + 10px) 0 0 -50%;
+  transform-origin: top left;
+  transform: translateY(-8px) scale(0.98);
+}
+.maplibregl-ctrl-top-right .maplibre-style-control .maplibre-style-control-groups {
+  top: 0;
+  right: 0;
+  margin: 0 calc(var(--style-control-current-size) + 10px) 0 0;
+  transform-origin: top right;
+  transform: translateX(8px) scale(0.98);
+}
+.maplibregl-ctrl-bottom-left .maplibre-style-control .maplibre-style-control-groups {
+  bottom: 0;
+  left: 0;
+  margin: 0 0 0 calc(var(--style-control-current-size) + 10px);
+  transform-origin: bottom left;
+  transform: translateX(-8px) scale(0.98);
+}
+.maplibregl-ctrl-bottom-center .maplibre-style-control .maplibre-style-control-groups {
+  bottom: 0;
+  left: 50%;
+  margin: 0 0 calc(var(--style-control-current-size) + 10px) -50%;
+  transform-origin: bottom left;
+  transform: translateY(8px) scale(0.98);
+}
+.maplibregl-ctrl-bottom-right .maplibre-style-control .maplibre-style-control-groups {
+  bottom: 0;
+  right: 0;
+  margin: 0 calc(var(--style-control-current-size) + 10px) 0 0;
+  transform-origin: bottom right;
+  transform: translateX(8px) scale(0.98);
+}
+@media only screen and (max-width: 768px) {
+  .maplibregl-ctrl-top-left .maplibre-style-control .maplibre-style-control-groups,
+  .maplibregl-ctrl-top-center .maplibre-style-control .maplibre-style-control-groups,
+  .maplibregl-ctrl-top-right .maplibre-style-control .maplibre-style-control-groups,
+  .maplibregl-ctrl-bottom-left .maplibre-style-control .maplibre-style-control-groups,
+  .maplibregl-ctrl-bottom-center .maplibre-style-control .maplibre-style-control-groups,
+  .maplibregl-ctrl-bottom-right .maplibre-style-control .maplibre-style-control-groups {
+    margin: 0;
+  }
+}
+.maplibre-style-control .maplibre-style-control-groups.maplibre-style-control-groups-active {
+  pointer-events: all;
+  opacity: 1;
+  transform: none;
+}
+.maplibre-style-control .maplibre-style-control-groups button.maplibre-style-control-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: var(--style-control-space-3);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='9' height='9' fill='%23656776'%3E%3Cpath d='M14.3,12.179a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.442L12.177,9.7a.25.25,0,0,1-.354,0L2.561.442A1.5,1.5,0,0,0,.439,2.563L9.7,11.825a.25.25,0,0,1,0,.354L.439,21.442a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,0,0,2.122-2.121Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 28px;
+  height: 28px;
+  background-color: transparent;
+  border-radius: var(--style-control-radius-sm);
+  transition:
+    background-color var(--style-control-duration-fast) var(--style-control-ease),
+    background-image var(--style-control-duration-fast) var(--style-control-ease);
+}
+.maplibre-style-control .maplibre-style-control-groups .maplibre-style-control-close:hover {
+  background-color: var(--style-control-bg-subtle);
+  color: var(--style-control-color-fg-strong);
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='9' height='9' fill='%23282932'%3E%3Cpath d='M14.3,12.179a.25.25,0,0,1,0-.354l9.263-9.262A1.5,1.5,0,0,0,21.439.442L12.177,9.7a.25.25,0,0,1-.354,0L2.561.442A1.5,1.5,0,0,0,.439,2.563L9.7,11.825a.25.25,0,0,1,0,.354L.439,21.442a1.5,1.5,0,0,0,2.122,2.121L11.823,14.3a.25.25,0,0,1,.354,0l9.262,9.263a1.5,1.5,0,0,0,2.122-2.121Z'/%3E%3C/svg%3E");
+}
+.maplibre-style-control .maplibre-style-control-groups button.maplibre-style-control-expand {
+  bottom: 0;
+  right: 0;
+  margin: 14px auto 0 auto;
+  width: auto;
+  height: auto;
+  color: #555555;
+}
+.maplibre-style-control .maplibre-style-control-groups button.maplibre-style-control-expand::after {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='%23555555'%3E%3Cpath d='M3.804 6h12.424a1 1 0 0 1 .72 1.694L9.9 15 3.073 7.682A1 1 0 0 1 3.804 6z'/%3E%3C/svg%3E");
+  background-size: 13px 13px;
+  margin: 0 0 -3px 3px;
+}
+.maplibre-style-control .maplibre-style-control-groups button.maplibre-style-control-expand:hover {
+  color: #000000;
+  background-color: unset;
+}
+.maplibre-style-control .maplibre-style-control-groups button.maplibre-style-control-expand:hover::after {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' fill='%23000000'%3E%3Cpath d='M3.804 6h12.424a1 1 0 0 1 .72 1.694L9.9 15 3.073 7.682A1 1 0 0 1 3.804 6z'/%3E%3C/svg%3E");
+}
+.maplibre-style-control .maplibre-style-control-group:not(.maplibre-style-control-group-collapsed) + button.maplibre-style-control-expand {
+  display: none;
+}
+.maplibre-style-control .maplibre-style-control-group + .maplibre-style-control-group {
+  margin: 14px 0 0 0;
+}
+.maplibre-style-control .maplibre-style-control-group.maplibre-style-control-group-collapsed {
+  display: none;
+  margin: 0;
+}
+.maplibre-style-control .maplibre-style-control-group-name {
+  margin: 0 0 calc(var(--style-control-space-4) + 2px) 0;
+  font-size: var(--style-control-font-size-h3);
+  font-weight: var(--style-control-font-weight-bold);
+}
+.maplibre-style-control .maplibre-style-control-group-list {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--style-control-space-3);
+  list-style: none;
+}
+.maplibre-style-control .maplibre-style-control-group-list-item button {
+  position: relative;
+  width: var(--style-control-size);
+  height: auto;
+  border: none;
+  font-family: var(--style-control-font-family);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item-active button::before {
+  position: absolute;
+  content: "";
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--style-control-color-accent);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='12' height='12' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'%3E%3C/path%3E%3C/svg%3E");
+  color: var(--style-control-color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px rgba(25, 31, 57, 0.3);
+  z-index: 1;
+  transition: transform var(--style-control-duration) var(--style-control-ease);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item button:hover,
+.maplibre-style-control .maplibre-style-control-group-list-item button:active {
+  background-color: unset;
+}
+.maplibre-style-control .maplibre-style-control-group-list-item button:hover .maplibre-style-control-group-list-item-image {
+  transform: translateY(-2px);
+  box-shadow: var(--style-control-shadow-sm);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item button:active .maplibre-style-control-group-list-item-image {
+  transform: translateY(0);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item-active button:hover::before {
+  transform: translateY(-2px);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item-active button:active::before {
+  transform: translateY(0);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item button * {
+  pointer-events: none;
+}
+.maplibre-style-control .maplibre-style-control-group-list-item .maplibre-style-control-group-list-item-image {
+  box-sizing: border-box;
+  width: 100%;
+  height: var(--style-control-size);
+  background-color: #dddddd;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-clip: content-box;
+  border-radius: var(--style-control-radius);
+  transition:
+    transform var(--style-control-duration) var(--style-control-ease),
+    box-shadow var(--style-control-duration) var(--style-control-ease);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item .maplibre-style-control-group-list-item-name {
+  display: block;
+  font-size: 13px;
+  color: var(--style-control-color-fg-muted);
+  transition: color var(--style-control-duration-fast) var(--style-control-ease);
+  margin-top: 6px;
+}
+.maplibre-style-control .maplibre-style-control-group-list-item-active .maplibre-style-control-group-list-item-image {
+  box-shadow: 0 0 0 2px var(--style-control-color-primary);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item-active button:hover .maplibre-style-control-group-list-item-image {
+  box-shadow:
+    0 0 0 2px var(--style-control-color-primary),
+    var(--style-control-shadow-sm);
+}
+.maplibre-style-control .maplibre-style-control-group-list-item-active .maplibre-style-control-group-list-item-name {
+  color: var(--style-control-color-fg-strong);
+  font-weight: var(--style-control-font-weight-bold);
+}

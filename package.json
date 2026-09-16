@@ -1,0 +1,62 @@
+{
+  "name": "maplibre-style-control",
+  "version": "0.1.0",
+  "description": "A MapLibre GL JS control plugin to switch between different styles.",
+  "main": "./dist/maplibre-style-control.js",
+  "module": "./dist/maplibre-style-control.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/maplibre-style-control.mjs",
+      "require": "./dist/maplibre-style-control.js"
+    },
+    "./style.css": "./dist/maplibre-style-control.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "dev": "vite demo --config vite.config.mts",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "npm run build && changeset publish"
+  },
+  "peerDependencies": {
+    "maplibre-gl": ">=3.0.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^3.0.3",
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.5.1",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "jsdom": "^30.0.1",
+    "maplibre-gl": "^6.9.1",
+    "prettier": "^3.9.6",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.0",
+    "vite": "^8.3.0",
+    "vite-plugin-dts": "^5.1.0",
+    "vitest": "^5.0.1"
+  },
+  "keywords": [
+    "maplibre",
+    "maplibre-gl",
+    "map",
+    "plugin",
+    "control"
+  ],
+  "author": "",
+  "license": "BSD-3-Clause"
+}
