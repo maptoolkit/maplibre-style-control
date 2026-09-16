@@ -3,7 +3,6 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
-  optimizeDeps: { exclude: ["maplibre-gl"] },
   plugins: [dts({ bundleTypes: true, tsconfigPath: "./tsconfig.json" })],
   build: {
     sourcemap: true,
