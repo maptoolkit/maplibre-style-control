@@ -1,5 +1,5 @@
 {
-  "name": "maplibre-style-control",
+  "name": "@maptoolkit/maplibre-style-control",
   "version": "0.1.0",
   "description": "A MapLibre GL JS control plugin to switch between different styles.",
   "main": "./dist/maplibre-style-control.js",
@@ -16,6 +16,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "sideEffects": [
     "*.css"
   ],

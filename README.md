@@ -5,15 +5,15 @@ A [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) control plugin to 
 ## Install
 
 ```bash
-npm install maplibre-style-control maplibre-gl
+npm install @maptoolkit/maplibre-style-control maplibre-gl
 ```
 
 ## Usage
 
 ```js
 import maplibregl from "maplibre-gl";
-import { StyleControl } from "maplibre-style-control";
-import "maplibre-style-control/style.css";
+import { StyleControl } from "@maptoolkit/maplibre-style-control";
+import "@maptoolkit/maplibre-style-control/style.css";
 
 const map = new maplibregl.Map({ container: "map", style, center, zoom });
 map.addControl(new StyleControl());
@@ -44,7 +44,7 @@ new StyleControl({
 The built-in styles are exported as `defaultStyleControlOptions`, so you can extend rather than replace them:
 
 ```js
-import { StyleControl, defaultStyleControlOptions } from "maplibre-style-control";
+import { StyleControl, defaultStyleControlOptions } from "@maptoolkit/maplibre-style-control";
 
 new StyleControl({
   styles: [...defaultStyleControlOptions.styles, { id: "Custom", value: "..." }],
