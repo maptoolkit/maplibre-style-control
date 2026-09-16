@@ -6,6 +6,8 @@
 
 A [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) control plugin to switch between different styles.
 
+**[Live demo](https://maptoolkit.github.io/maplibre-style-control/)**
+
 ## Install
 
 ```bash
