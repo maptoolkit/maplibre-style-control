@@ -8,17 +8,11 @@ export default defineConfig({
     sourcemap: true,
     lib: {
       entry: fileURLToPath(new URL("./src/index.ts", import.meta.url)),
-      name: "MaplibreStyleControl",
-      fileName: (format) => (format === "umd" ? "maplibre-style-control.js" : "maplibre-style-control.mjs"),
-      formats: ["es", "umd"],
+      fileName: "maplibre-style-control",
+      formats: ["es"],
     },
     rollupOptions: {
       external: ["maplibre-gl"],
-      output: {
-        globals: {
-          "maplibre-gl": "maplibregl",
-        },
-      },
     },
   },
 });
