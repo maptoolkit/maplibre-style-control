@@ -51,10 +51,11 @@
         zoom: 12,
       });
 
+      map.addControl(new LogoControl());
+
       const ctrl = new StyleControl();
       ctrl.on("style.set", (ev) => console.log(ev));
       map.addControl(ctrl);
-      map.addControl(new LogoControl());
     </script>
   </body>
 </html>
