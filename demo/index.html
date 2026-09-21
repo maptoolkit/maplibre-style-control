@@ -31,6 +31,8 @@
       // along with it. Matches what real consumers do (see README).
       import "../src/style.css";
       import { StyleControl } from "../src/index.ts";
+      import { LogoControl } from "@maptoolkit/maplibre-logo-control";
+      import "@maptoolkit/maplibre-logo-control/style.css";
 
       // maplibre-gl derives its worker URL from its own import.meta.url, which
       // only works when it's served as its own file (true in dev, served
@@ -52,6 +54,7 @@
       const ctrl = new StyleControl();
       ctrl.on("style.set", (ev) => console.log(ev));
       map.addControl(ctrl);
+      map.addControl(new LogoControl());
     </script>
   </body>
 </html>
