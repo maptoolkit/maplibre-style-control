@@ -17,12 +17,38 @@ npm install @maptoolkit/maplibre-style-control maplibre-gl
 ## Usage
 
 ```js
-import maplibregl from "maplibre-gl";
+import * as maplibregl from "maplibre-gl";
 import { StyleControl } from "@maptoolkit/maplibre-style-control";
 import "@maptoolkit/maplibre-style-control/style.css";
 
 const map = new maplibregl.Map({ container: "map", style, center, zoom });
 map.addControl(new StyleControl());
+```
+
+### Without a bundler
+
+The package is ESM-only (no UMD/CJS build). Loading it straight from a CDN via
+a `<script>` tag works with an [import map](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/script/type/importmap)
+to resolve the bare `maplibre-gl` specifier:
+
+```html
+<link href="https://unpkg.com/maplibre-gl@^6.0.0/dist/maplibre-gl.css" rel="stylesheet" />
+<link href="https://unpkg.com/@maptoolkit/maplibre-style-control@^1.1.0/dist/maplibre-style-control.css" rel="stylesheet" />
+
+<script type="importmap">
+  {
+    "imports": {
+      "maplibre-gl": "https://unpkg.com/maplibre-gl@^6.0.0/dist/maplibre-gl.mjs"
+    }
+  }
+</script>
+<script type="module">
+  import * as maplibregl from "maplibre-gl";
+  import { StyleControl } from "https://unpkg.com/@maptoolkit/maplibre-style-control@^1.1.0/dist/maplibre-style-control.js";
+
+  const map = new maplibregl.Map({ container: "map", style, center, zoom });
+  map.addControl(new StyleControl());
+</script>
 ```
 
 ## Options
