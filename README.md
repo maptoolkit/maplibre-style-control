@@ -1,12 +1,3 @@
----
-title: "Add a Style Switcher to MapLibre GL JS"
-linkTitle: "Style Control"
-description: "Let users switch basemap styles in MapLibre GL JS with the Maptoolkit Style Control plugin: install, options, events, and how to keep the map on your keyed styles."
-weight: 30
-libraries: [maplibre]
-tags: [maplibre, controls, vector]
----
-
 # maplibre-style-control
 
 [![License](https://img.shields.io/npm/l/@maptoolkit/maplibre-style-control?style=plastic)](LICENSE)
@@ -16,8 +7,6 @@ tags: [maplibre, controls, vector]
 A [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) control plugin to switch between different styles.
 
 **[Live demo](https://maptoolkit.github.io/maplibre-style-control/)**
-
-<iframe src="https://maptoolkit.github.io/maplibre-style-control/" width="100%" height="480" style="border:none;"></iframe>
 
 ## Install
 
