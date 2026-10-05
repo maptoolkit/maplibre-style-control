@@ -1,0 +1,12 @@
+name: Publish Docs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-docs:
+    uses: maptoolkit/.github/.github/workflows/publish-docs.yml@main
+    with:
+      docs-path: docs/content/third-party-libraries/maplibre/maplibre-style-control.md
+    secrets:
+      DOCS_REPO_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}

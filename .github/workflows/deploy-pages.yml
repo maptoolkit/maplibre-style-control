@@ -2,9 +2,7 @@ name: Deploy demo to GitHub Pages
 
 on:
   workflow_dispatch:
-  push:
-    tags:
-      - "v*"
+  workflow_call:
 
 permissions:
   id-token: write
