@@ -1,5 +1,13 @@
 # @maptoolkit/maplibre-style-control
 
+## 1.1.2
+
+### Patch Changes
+
+- 24590a3: Fix type errors with maplibre-gl 6.0–6.2
+- c8870c1: Call docs publishing workflow automatically on package release
+- a1d4e02: Custom styles without a localization entry now log a warning and fall back to their id instead of throwing an error
+
 ## 1.1.1
 
 ### Patch Changes
