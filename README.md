@@ -14,6 +14,8 @@ A [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) control plugin to 
 npm install @maptoolkit/maplibre-style-control maplibre-gl
 ```
 
+Built and tested against `maplibre-gl` v6.
+
 ## Usage
 
 ```js
