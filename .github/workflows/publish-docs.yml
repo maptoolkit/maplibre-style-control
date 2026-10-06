@@ -2,6 +2,10 @@ name: Publish Docs
 
 on:
   workflow_dispatch:
+  workflow_call:
+    secrets:
+      DOCS_REPO_TOKEN:
+        required: true
 
 jobs:
   publish-docs:
