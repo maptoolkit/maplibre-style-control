@@ -1,8 +1,8 @@
 # maplibre-style-control
 
-[![License](https://img.shields.io/npm/l/@maptoolkit/maplibre-style-control?style=plastic)](LICENSE)
-[![Version](https://img.shields.io/npm/v/@maptoolkit/maplibre-style-control?style=plastic)](https://www.npmjs.com/package/@maptoolkit/maplibre-style-control)
-[![Downloads](https://img.shields.io/npm/dm/@maptoolkit/maplibre-style-control?style=plastic)](https://www.npmjs.com/package/@maptoolkit/maplibre-style-control)
+[![NPM](https://img.shields.io/npm/v/@maptoolkit/maplibre-style-control?style=for-the-badge&logo=npm&logoColor=white&labelColor=CB3837&color=555)](https://www.npmjs.com/package/@maptoolkit/maplibre-style-control)
+[![License](https://img.shields.io/npm/l/@maptoolkit/maplibre-style-control?style=for-the-badge)](https://github.com/maptoolkit/maplibre-style-control/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maptoolkit/maplibre-style-control)
 
 A [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) control plugin to switch between different styles.
 
