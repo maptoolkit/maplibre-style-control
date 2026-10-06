@@ -44,6 +44,17 @@ describe("StyleControl", () => {
     expect(name?.textContent).toBe("Dark");
   });
 
+  it("falls back to the style id when a custom style has no UI string", () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    const control = new StyleControl({ styles: [{ id: "Custom", value: "https://example.com/style.json" }], active: "Custom" });
+    const container = control.onAdd(createMockMap());
+
+    expect(container.querySelector(".maplibre-style-control-current-name")?.textContent).toBe("Custom");
+    expect(container.querySelector(".maplibre-style-control-group-list-item-name")?.textContent).toBe("Custom");
+    expect(warn).toHaveBeenCalled();
+    warn.mockRestore();
+  });
+
   it("defers the initial active style until the map's current style finishes loading", () => {
     const map = createMockMap({ styleLoaded: false }) as MaplibreMap & { _fireStyleLoad: () => void };
     const control = new StyleControl({ active: "Dark" });

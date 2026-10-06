@@ -113,7 +113,13 @@ export class StyleControl extends Evented<StyleControlEventType> implements ICon
             // update active style image
             $styleImage.style.removeProperty("background-image");
             if (style.image) $styleImage.style.setProperty("background-image", `url(${style.image})`);
-            $styleName.textContent = getUIString(map, `StyleControl.Style.${style.id}`) || style.id;
+
+            try {
+              $styleName.textContent = getUIString(map, `StyleControl.Style.${style.id}`);
+            } catch (err) {
+              $styleName.textContent = style.id;
+              console.warn(err);
+            }
 
             // update active style highlighting
             const $styleGroupItems = this._groups?.querySelectorAll<HTMLLIElement>("li[data-style]");
@@ -172,7 +178,14 @@ export class StyleControl extends Evented<StyleControlEventType> implements ICon
 
         const $groupItemName = document.createElement("label");
         $groupItemName.classList.add("maplibre-style-control-group-list-item-name");
-        $groupItemName.textContent = getUIString(map, `StyleControl.Style.${groupStyle.id}`) || groupStyle.id;
+
+        try {
+          $groupItemName.textContent = getUIString(map, `StyleControl.Style.${groupStyle.id}`);
+        } catch (err) {
+          $groupItemName.textContent = groupStyle.id;
+          console.warn(err);
+        }
+
         $groupItemButton.appendChild($groupItemName);
 
         $groupItemButton.addEventListener("click", (ev) => {

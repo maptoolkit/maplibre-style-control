@@ -83,6 +83,24 @@ new StyleControl({
 });
 ```
 
+### Localization
+
+UI strings are read from the map's `locale` option, using the same table as MapLibre's built-in controls. Each style's label comes from `StyleControl.Style.<id>`, and the group heading comes from `StyleControl.Group.Styles`. The built-in styles and groups ship with English defaults, and any key you pass overrides them. A custom style without a matching key falls back to its `id` (a `Missing UI string` warning is logged):
+
+```js
+const map = new maplibregl.Map({
+  container: "map",
+  style,
+  center,
+  zoom,
+  locale: {
+    "StyleControl.Group.Styles": "Styles",
+    "StyleControl.Style.Summer": "Summer",
+    "StyleControl.Style.Custom": "My Style",
+  },
+});
+```
+
 ## Events
 
 The control extends MapLibre's `Evented`, so you can subscribe like you would on the map itself:
