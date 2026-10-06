@@ -33,7 +33,7 @@ type CreateGroupOptions = {
  * Fired via `control.on("style.set", ...)` whenever the active style changes.
  */
 type StyleControlEventType = {
-  "style.set": MapLibreEvent<"style.set"> & { style: StyleDefSpecification };
+  "style.set": MapLibreEvent & { style: StyleDefSpecification };
 };
 
 // `_locale`/`_getUIString` are undocumented on Map; cast here so `StyleControl.*`
