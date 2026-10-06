@@ -8,5 +8,12 @@ jobs:
     uses: maptoolkit/.github/.github/workflows/publish-docs.yml@main
     with:
       docs-path: docs/content/third-party-libraries/maplibre/maplibre-style-control.md
+      front-matter: |
+        title: "Add a Style Switcher to MapLibre GL JS"
+        linkTitle: "Style Control"
+        description: "Let users switch basemap styles in MapLibre GL JS with the Maptoolkit Style Control plugin: install, options, events, and how to keep the map on your keyed styles."
+        weight: 30
+        libraries: [maplibre]
+        tags: [maplibre, controls, vector]
     secrets:
       DOCS_REPO_TOKEN: ${{ secrets.DOCS_REPO_TOKEN }}
