@@ -1,7 +1,7 @@
 # maplibre-style-control
 
 [![NPM](https://img.shields.io/npm/v/@maptoolkit/maplibre-style-control?style=for-the-badge&logo=npm&logoColor=white&labelColor=CB3837&color=555)](https://www.npmjs.com/package/@maptoolkit/maplibre-style-control)
-[![License](https://img.shields.io/npm/l/@maptoolkit/maplibre-style-control?style=for-the-badge)](https://github.com/maptoolkit/maplibre-style-control/blob/main/LICENSE)
+[![License](https://img.shields.io/npm/l/@maptoolkit/maplibre-style-control?style=for-the-badge)](https://github.com/maptoolkit/maplibre-style-control/blob/HEAD/LICENSE)
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/maptoolkit/maplibre-style-control)
 
 A [MapLibre GL JS](https://maplibre.org/maplibre-gl-js/docs/) control plugin to switch between different styles.
@@ -148,4 +148,4 @@ See `src/style.css` for the full list of `--style-control-*` variables.
 
 ## License
 
-**maplibre-style-control** is open-source under the [BSD 3-Clause License](LICENSE).
+**maplibre-style-control** is open-source under the [BSD 3-Clause License](https://github.com/maptoolkit/maplibre-style-control/blob/HEAD/LICENSE).
