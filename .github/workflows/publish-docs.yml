@@ -16,6 +16,7 @@ jobs:
         title: "Add a Style Switcher to MapLibre GL JS"
         linkTitle: "Style Control"
         description: "Let users switch basemap styles in MapLibre GL JS with the Maptoolkit Style Control plugin: install, options, events, and how to keep the map on your keyed styles."
+        subtitle: "Let users switch between basemap styles from a panel of thumbnails."
         aliases: [/third-party-libraries/maplibre/maplibre-style-control/, /third-party-libraries/maplibre/style-control/]
         weight: 30
         libraries: [maplibre]
